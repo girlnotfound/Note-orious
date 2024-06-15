@@ -44,3 +44,26 @@ router.post('/', (req, res) => {
   }
 });
 
+// DELETE /api/notes/:id to delete a note by ID
+router.delete('/:id', (req, res) => {
+  const noteId = req.params.id; // get note ID from request parameters
+  fs.readFile(path.join(__dirname, '../db/db.json'), 'utf8', (err, data) => {
+    if (err) {
+      res.status(500).json({ error: 'Oops! Failed to retrieve your notes.' }); 
+    } else {
+      const notes = JSON.parse(data); 
+      const updatedNotes = notes.filter((note) => note.id !== noteId); // filter out the note to delete
+      fs.writeFile(path.join(__dirname, '../db/db.json'), JSON.stringify(updatedNotes, null, 4), (err) => {
+        if (err) {
+          res.status(500).json({ error: 'Oops! Failed to delete note.' }); 
+        } else {
+          res.json({ message: 'Yay! Note deleted successfully.' }); // send success message
+        }
+      });
+    }
+  });
+});
+
+module.exports = router; // export the router object for use in other parts of the application
+
+
