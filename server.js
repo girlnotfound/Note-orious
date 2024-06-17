@@ -6,7 +6,7 @@ const apiRoutes = require('./routes/notes');
 const htmlRoutes = require('./routes/html'); 
 
 const app = express(); // create an Express application
-const PORT = 3001; // set the port to 3001
+const PORT = process.env.PORT || 3001; // set the port to 3001
 
 // middleware
 app.use(express.json()); // parse incoming JSON requests
