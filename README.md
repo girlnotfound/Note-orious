@@ -26,7 +26,7 @@ To install Note-orious:
 
 ## Usage
 
-- Start the application, in the terminal run the command: `npm start`
+- Start the application, in the terminal run the command: `node server.js`
 
 - A success message will appear confirming you are connected to the server. You can then open your browser and go to: http://localhost:3001
 
