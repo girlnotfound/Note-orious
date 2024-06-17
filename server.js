@@ -18,5 +18,5 @@ app.use('/api/notes', apiRoutes); // use API routes for '/api/notes'
 app.use('/', htmlRoutes); // use HTML routes for the root path
 
 app.listen(PORT, () => { // start the server
-  console.log(`API server now on port http://localhost:${PORT}!`); // log the server start message
+  console.log(`API server now on port http://localhost:${PORT}`); // log the server start message
 });
